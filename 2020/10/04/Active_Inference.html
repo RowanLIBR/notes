@@ -211,7 +211,7 @@ We can take the KL-divergence between the two distributions to measure their sim
 <p>$F = \int q(v)ln\frac{q(v)}{p(v,u)}dv$</p>
 <p>$  = \int q(v)lnp(u,v)dv - \int q(v)lnp(v)dv$</p>
 <p>Using the property of the delta function which states that for $\delta(x)$ with center $\phi$, for any function $h(x)$, the integral of $\delta(x)h(x)$ is equal to $h(\phi)$. Therefore:</p>
-<p>$F = lnp(u,\phi) + C$</p>
+<p>$F = lnp(u,\phi) + C$.</p>
 <p>We can change the second integral in the expression to a constant as it does not depend on $\phi$ and will cancel when we take the derivative.
 This expression is exactly the same as $F$ calculated in the previous section, and it should be, as approxmating a distribution with the delta distribution is the same as approximating it with a single point ($\phi$). 
 Also note that $lnp(u) = F + KL(q(v), p(v|u))$. 
