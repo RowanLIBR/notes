@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | Reinforcement Learning and Active Inference</title>
+<title>Bayesian Inference of the brain and the derivation of the Free Energy Principle | Reinforcement Learning and Active Inference</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Bayesian Inference of the brain and the derivation of the Free Energy Principle" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Notes on RL &amp; Active Inference." />
 <meta property="og:description" content="Notes on RL &amp; Active Inference." />
@@ -16,7 +16,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-10-04T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Notes on RL &amp; Active Inference.","url":"https://pianopwner.github.io/notes/2020/10/04/Active_Inference.html","@type":"BlogPosting","headline":"Title","dateModified":"2020-10-04T00:00:00-05:00","datePublished":"2020-10-04T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pianopwner.github.io/notes/2020/10/04/Active_Inference.html"},"@context":"https://schema.org"}</script>
+{"url":"https://pianopwner.github.io/notes/2020/10/04/Active_Inference.html","@type":"BlogPosting","headline":"Bayesian Inference of the brain and the derivation of the Free Energy Principle","dateModified":"2020-10-04T00:00:00-05:00","datePublished":"2020-10-04T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://pianopwner.github.io/notes/2020/10/04/Active_Inference.html"},"description":"Notes on RL &amp; Active Inference.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/notes/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://pianopwner.github.io/notes/feed.xml" title="Reinforcement Learning and Active Inference" /><link rel="shortcut icon" type="image/x-icon" href="/notes/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -87,13 +87,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-04T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Bayesian Inference of the brain and the derivation of the Free Energy Principle</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-04T00:00:00-05:00" itemprop="datePublished">
         Oct 4, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      10 min read
     
 </span></p>
 
@@ -135,12 +135,6 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Bayesian-Inference-of-the-brain-and-the-derivation-of-the-Free-Energy-Principle">Bayesian Inference of the brain and the derivation of the Free Energy Principle<a class="anchor-link" href="#Bayesian-Inference-of-the-brain-and-the-derivation-of-the-Free-Energy-Principle"> </a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>$\DeclareMathOperator*{\argmax}{arg\,max}$
 The idea of the Free Energy Principle has its foundations in Bayesian Inference, specificall Variational Bayesion Methods, as well as the theory of predictive coding. 'Inference' in this case means infering the probability of a hidden state (or hypothesis) given an observation (evidence). This brings us to Bayes' formula:</p>
 <p><strong>$p(H|E) = \frac{p(E|H)p(H)}{p(E)}$</strong></p>
@@ -156,13 +150,9 @@ The idea of the Free Energy Principle has its foundations in Bayesian Inference,
 <p>$...$</p>
 <p>$...$</p>
 <p>$ = \frac{1}{2}\bigg(-\frac{(\phi - v_p)^2}{\Sigma_p} - \frac{(u-g(\phi))^2}{\Sigma_u}\bigg) + C$</p>
-<p><br /></p>
-<p>In the last line, all the constant terms not involving $\phi$ have been incorporated into a constant $C$ as they will dissapear when the derivative is taken:
-<br />
-<br />
-$ \frac{\partial F}{\partial \phi} = \frac{v_p - \phi}{\Sigma_p} + \frac{u-g(\phi)}{\Sigma_u}g'(\phi)$
-<br />
-With this equation we can pefrom gradient ascent until $\theta$ converges on a value. This will be the value which maximises $F$ and therefore maximises $p(v|u)$. 
+<p>In the last line, all the constant terms not involving $\phi$ have been incorporated into a constant $C$ as they will dissapear when the derivative is taken:</p>
+<p>$ \frac{\partial F}{\partial \phi} = \frac{v_p - \phi}{\Sigma_p} + \frac{u-g(\phi)}{\Sigma_u}g'(\phi)$</p>
+<p>With this equation we can pefrom gradient ascent until $\theta$ converges on a value. This will be the value which maximises $F$ and therefore maximises $p(v|u)$. 
 Looking at the form of the equation, it is evident that the gradient of $F$ is being influenced in two different ways. One by how much the approximated hypothesis $\phi$ is different from the prior mean hypothesis and the other by how different the observation, $u$, is from the expected observation given the approxmated hypothesis $g(\phi)$. There seems to be a tradeoff happening here. The prior and the <a href="https://en.wikipedia.org/wiki/Likelihood_function">likelihood</a> are each pulling the posterior toward their mean values, with it ultimately being a weighted average between the two. The weighting here is exactly determined by the variance of the two terms respectively, with higher variance resulting in a less 'reliable' contribution to the posterior. Ths makes sense, as the more noisy the prior or observation is, the less one would want it to contribute to the inference of a posterior hypothesis.</p>
 <p>To frame this in terms of neuronal activity, let us denote these two terms in the derviative of $F$ as:</p>
 <p>$\epsilon_p = \frac{\phi - v_p}{\Sigma_p}$
@@ -193,13 +183,40 @@ $\epsilon_u = \frac{u - g(\phi)}{\Sigma_u}$</p>
 <p>$\epsilon_{p_{new}} = \epsilon_{p_{old}} + a(\phi_{new} - v_p - \epsilon_{p_{old}}\Sigma_p)$</p>
 <p>where $0&lt;a&lt;1$ is some constant to allow for better convergence. Note that in the update equation for $\phi$, the quantity from the excitatory 'evidence' neuron $\epsilon_ug'(\phi)$ is being added, while the quantity from the inhibitory 'prior' neuron $\epsilon_p$ is being subtracted. This exemplified the two componenets 'pulling' the posterior in different directions as stated above. 
 Also note that the error neurons are being self-inhibited by their respective variances, which represent the weighting on the components used in calculating the inferenced hypothesis.</p>
-<p>The next step for the organism would be to shift its prior and likelihood calculation so as to better represent the new observation. In this case, it would mean changing the $v_p, \Sigma_p$ and $\Sigma_u$ as well as sometimes the transformation function $g$. Essentailly, the organsim would like to maximise $p(u)$ on average. If it is constantly inferring hypotheses that it gives little prior probability to, $p(v)$, and little likelihood to, $p(u|v)$ perhaps it should adjust the parameters that determine these two factors. In bayesian Inference, this is what model evidence is, referred to in frequentist statistics as marginal likelihood. However trying to maximise $p(u)$ once again leaves us with the problem of the intractable marginalisation: $p(u) = \int p(u|v)p(v)dv$. To avoid this we can turn to maximising a related and familiar expression: $p(u, \phi)$. At first glance it might not seem clear why maximising this term, rather the whole model evidence, is useful. Remember that $p(u)$ essentially represents a weighted average of all possible likelihoods. However given that we are not necessarily attempting to calculate the entire posterior distribution, rather just one point of the posterior, it is reasonable to only care about maximising model evidence with respect to this point. Note that $p(u,\phi) = p(u|\phi)p(\phi) = F$. Therefore by maximising $F$ with respect to the various parameters mentioned above will maximise the model evidence for the point of maximum likelihood, $\phi$. The update to these parameters would therefore be proportional to the derivative of $F$ with respect to each:
-$\frac{\partial F}{\partial v_p} = \frac{\phi - v_p}{\Sigma_p}$</p>
+<p>The next step for the organism would be to shift its prior and likelihood calculation so as to better represent the new observation. In this case, it would mean changing the $v_p, \Sigma_p$ and $\Sigma_u$ as well as sometimes the transformation function $g$. Essentailly, the organsim would like to maximise $p(u)$ on average. If it is constantly inferring hypotheses that it gives little prior probability to, $p(v)$, and little likelihood to, $p(u|v)$ perhaps it should adjust the parameters that determine these two factors. In bayesian Inference, this is what model evidence is, referred to in frequentist statistics as marginal likelihood. However trying to maximise $p(u)$ once again leaves us with the problem of the intractable marginalisation: $p(u) = \int p(u|v)p(v)dv$. To avoid this we can turn to maximising a related and familiar expression: $p(u, \phi)$. At first glance it might not seem clear why maximising this term, rather the whole model evidence, is useful. Remember that $p(u)$ essentially represents a weighted average of all possible likelihoods. However given that we are not necessarily attempting to calculate the entire posterior distribution, rather just one point of the posterior, it is reasonable to only care about maximising model evidence with respect to this point. Note that $p(u,\phi) = p(u|\phi)p(\phi) = F$. Therefore by maximising $F$ with respect to the various parameters mentioned above will maximise the model evidence for the point of maximum likelihood, $\phi$. The update to these parameters would therefore be proportional to the derivative of $F$ with respect to each:</p>
+<p>$\frac{\partial F}{\partial v_p} = \frac{\phi - v_p}{\Sigma_p}$</p>
 <p>$\frac{\partial F}{\partial \Sigma_p} = \frac{1}{2}\bigg(\frac{(\phi - v_p)^2}{\Sigma_p^2} - \frac{1}{\Sigma_p}\bigg)$</p>
 <p>$\frac{\partial F}{\partial \Sigma_u} = \frac{1}{2}\bigg(\frac{(u - g(\phi))^2}{\Sigma_u^2} - \frac{1}{\Sigma_u}\bigg)$</p>
 <p>Additionally, the translation, $g$ may be incorrect. In its most complex form, updating this function would require the approximating power of a separate neural network. In its simplest form, the function form is static but weighted by a parameter $\theta$ which can represent the strength of the connection between the neurons which pass the translated data - in this case between the neurons computing $\epsilon_u$ and $\phi$ (see picture above). The update update to this weighting would therefore be:
 $\frac{\partial F}{\partial \theta} = \epsilon_u\phi$</p>
-<h3 id="Free-Energy">Free Energy<a class="anchor-link" href="#Free-Energy"> </a></h3><p>All the formulations so far have been an effort</p>
+<h3 id="Free-Energy">Free Energy<a class="anchor-link" href="#Free-Energy"> </a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>All this calculation has been for the purpose of two main things: Approximating the posterior distribution and maximising model evidence. We will now see that this can be approached from another angle.</p>
+<p>Consider the goal of approximating the posterior. For the sake of simplicity, and we will continue on that vein, but this time treating that single value as a distribution, specifically a delta distribution with all its mass concentrated at one point which we will denote as $\phi$ (therefore has a 0 probability at every other point). This fits well with what we did above, however it is important to remember that we could use another known distribution, such as the normal, to approximate the posterior, however for now we will stick with the delta distribution.</p>
+<p>Let $q(v)$ = the distribution to approximate the posterior (in this example remember q(v) is the delta distribution)
+We can take the KL-divergence between the two distributions to measure their similarity (with a KL-divergence of 0 meaning they are identical):</p>
+<p>$KL(q(v), p(v|u)) = \int q(v)ln\frac{q(v)}{p(v|u)}dv$</p>
+<p>substituting in the definition that $p(v|u) = \frac{p(u,v)}{p(u)}$ we have:</p>
+<p>$KL(q(v), p(v|u)) = \int q(v)ln\frac{q(v)p(u)}{p(v,u)}dv$</p>
+<p>$= \int q(v)ln\frac{q(v)}{p(v,u)}dv + \int q(v)dvlnp(u)$</p>
+<p>$= \int q(v)ln\frac{q(v)}{p(v,u)}dv + lnp(u)$</p>
+<p>Going from the second to the third line we note that the integral of $q(v)$ is 1 and $lnp(u)$ is not a function of $v$</p>
+<p>Let $F = \int q(v)ln\frac{q(v)}{p(v,u)}dv$. This term is known as negative Free Energy and is related to the KL-divergence by:</p>
+<p>$KL(q(v), p(v|u)) = -F + lnp(u)$</p>
+<p>Now because $lnp(u)$ does not depend on $q$, the minimisation of the KL divergence between the two distributions can be achieved b maximising $F$. In this case, the value of $\phi$ that minimises the distance between $q(v)$ and $p(v|u)$ is the value of $\phi$ which maximises $F$. To go full cicle, we will evaluate $F$ a little more:</p>
+<p>$F = \int q(v)ln\frac{q(v)}{p(v,u)}dv$</p>
+<p>$  = \int q(v)lnp(u,v)dv - \int q(v)lnp(v)dv$</p>
+<p>Using the property of the delta function which states that for $\delta(x)$ with center $\phi$, for any function $h(x)$, the integral of $\delta(x)h(x)$ is equal to $h(\phi)$. Therefore:</p>
+<p>$F = lnp(u,\phi) + C$</p>
+<p>We can change the second integral in the expression to a constant as it does not depend on $\phi$ and will cancel when we take the derivative.
+This expression is exactly the same as $F$ calculated in the previous section, and it should be, as approxmating a distribution with the delta distribution is the same as approximating it with a single point ($\phi$). 
+Also note that $lnp(u) = F + KL(q(v), p(v|u))$. 
+Since the KL-divergence is non-negative, the minimum the log model evidence can be is $F$. Therefore $F$ acts as a lower bound to model evidence, and maximising it via model parameters (as we did in the previous section) maximises the lower bound on model evidence.</p>
+<p>Thus maximising $F$ serves to both maximise the approximate distribution, and optimise model parameters.</p>
 
 </div>
 </div>
