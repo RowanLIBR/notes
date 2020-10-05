@@ -108,7 +108,7 @@ titles_from_headings:
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  math_engine: MathJax
+  math_engine: mathjaxnode
   input: GFM
   auto_ids: true
   hard_wrap: false
