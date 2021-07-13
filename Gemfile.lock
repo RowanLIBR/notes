@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.7)
@@ -80,6 +80,8 @@ GEM
     kramdown-math-katex (1.0.1)
       katex (~> 0.4)
       kramdown (~> 2.0)
+    kramdown-math-mathjaxnode (1.0.0)
+      kramdown (~> 2.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
@@ -145,6 +147,7 @@ DEPENDENCIES
   jekyll-twitter-plugin
   jemoji
   kramdown-math-katex
+  kramdown-math-mathjaxnode
   minima
   tzinfo (~> 1.2)
   tzinfo-data
