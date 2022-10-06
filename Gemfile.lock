@@ -7,8 +7,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
-    addressable (2.7.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     colorator (1.1.0)
     concurrent-ruby (1.1.7)
     em-websocket (0.5.1)
@@ -80,6 +80,8 @@ GEM
     kramdown-math-katex (1.0.1)
       katex (~> 0.4)
       kramdown (~> 2.0)
+    kramdown-math-mathjaxnode (1.0.0)
+      kramdown (~> 2.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
@@ -103,7 +105,7 @@ GEM
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (4.0.6)
+    public_suffix (5.0.0)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -145,6 +147,7 @@ DEPENDENCIES
   jekyll-twitter-plugin
   jemoji
   kramdown-math-katex
+  kramdown-math-mathjaxnode
   minima
   tzinfo (~> 1.2)
   tzinfo-data
